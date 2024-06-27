@@ -1,0 +1,29 @@
+# Dependency directories
+node_modules/
+
+# Environment variables file
+.env
+
+# Logs
+logs/
+*.log
+
+# Debugging files
+npm-debug.log*
+
+# IDE/editor specific files
+.vscode/
+.idea/
+
+# Compiled binary addons
+dist/
+
+# Output of 'npm pack'
+*.tgz
+
+# macOS specific files
+.DS_Store
+
+# Windows specific files
+Thumbs.db
+
