@@ -12,6 +12,8 @@ jobs:
   frontend:
     name: frontend
     runs-on: self-hosted
+    env: 
+      VITE_API_URL: ${{ secrets.VITE_API_URL }}
 
     steps:
       - name: Checkout repository
@@ -40,6 +42,14 @@ jobs:
   backend:
     name: backend
     runs-on: self-hosted
+    env:
+      NODE_ENV: ${{ secrets.NODE_ENV }}
+      APP_ORIGIN: ${{ secrets.APP_ORIGIN }}
+      MONGO_URI: ${{ secrets.MONGO_URI }}
+      JWT_SECRET: ${{ secrets.JWT_SECRET }}
+      JWT_REFRESH_SECRET: ${{ secrets.JWT_REFRESH_SECRET }}
+      EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
 
     steps:
       - name: Checkout repository
@@ -53,8 +63,10 @@ jobs:
 
       - name: Install dependencies
         run: |
+          echo "Installing backend dependencies..."
           cd backend
-          npm install  # or pip install -r requirements.txt for Python
+          npm install
+          echo "Done!"
 
       # - name: Run tests
       #   run: |
@@ -63,7 +75,9 @@ jobs:
       
       - name: Build project files
         run: |
+          echo "Building Project..."
           cd backend
           npm run build
+          echo "Done!"
       
 
