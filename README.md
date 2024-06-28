@@ -11,7 +11,7 @@ Includes:
 - custom react hooks to manage auth state & application data
 
 <img src="preview.jpg" />
-
+ 
 ## API Architecture
 
 The API is built using different layers: routes, controllers, services and models.
