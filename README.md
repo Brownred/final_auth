@@ -7,11 +7,11 @@ Includes:
 - register, login, logout, profile, account verification, password reset
 - send emails for account verification and password reset
 - get and remove sessions
-- frontend forms for login, register, reset password, etc.
+- frontend forms for login, register, reset password, etc. 
 - custom react hooks to manage auth state & application data
 
 <img src="preview.jpg" />
-
+ 
 ## API Architecture
 
 The API is built using different layers: routes, controllers, services and models.
