@@ -1,0 +1,69 @@
+
+
+name: auth_final
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  frontend:
+    name: frontend
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          cd frontend
+          npm install
+
+      # - name: Run tests
+      #   run: |
+      #     cd frontend
+      #     npm test
+
+      - name: Build project files
+        run: |
+          cd frontend
+          npm run build
+
+  backend:
+    name: backend
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          
+
+      - name: Install dependencies
+        run: |
+          cd backend
+          npm install  # or pip install -r requirements.txt for Python
+
+      # - name: Run tests
+      #   run: |
+      #     cd backend
+      #     npm test 
+      
+      - name: Build project files
+        run: |
+          cd backend
+          npm run build
+      
+
